@@ -1,15 +1,15 @@
 package recursion;
 import java.util.*;
 public class LinearSearchforMultipleOccurrence {
-    static ArrayList<Integer> list = new ArrayList<>();
-    public static ArrayList search(int[]  arr , int i, int t){
+
+    private static ArrayList<Integer> search(int[]  arr , int i, int t,ArrayList<Integer> list){
         if(i==arr.length){
             return list;
         }
         if(arr[i]==t){
             list.add(i);
         }
-        return search(arr,i+1,t);
+        return search(arr,i+1,t,list);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,6 +22,7 @@ public class LinearSearchforMultipleOccurrence {
         }
         System.out.println("enter target:");
         int t = sc.nextInt();
-        System.out.println("index is: " + search(array,0,t));
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.println("index is: " + search(array,0,t,list));
     }
 }
